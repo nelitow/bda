@@ -1,0 +1,103 @@
+graph diagramaER {
+    layout = neato
+    overlap = scale
+
+    // Sujeitos
+    aluno [shape=record]
+    matrícula [shape=record]
+    disciplina [shape=record]
+    pedidoDeMatrícula [shape=record]
+    curso [shape=record]
+    câmpus [shape=record]
+    currículo [shape=record]
+    professor [shape=record]
+    semestre [shape=record]
+    horário [shape=record]
+    préRequisito [shape=record]
+
+    // Verbos
+    tem [shape=diamond]
+    cursou [shape=diamond]
+    pede [shape=diamond]
+    faz [shape=diamond]
+    vinculado [shape=diamond]
+    pertence [shape=diamond]
+    possui [shape=diamond]
+    lotado [shape=diamond]
+    agrega [shape=diamond]
+    ministrado [shape=diamond]
+    oferta [shape=diamond]
+    contém [shape=diamond]
+    exige [shape=diamond]
+    disponibiliza [shape=diamond]
+
+	// Atributos
+	email_aluno [shape=plaintext]
+	telefone_aluno [shape=plaintext]
+	RG_aluno [shape=plaintext]
+	nome_aluno [shape=plaintext]
+	nome_professor [shape=plaintext]
+	documento_professor [shape=plaintext]
+	nome_curso [shape=plaintext]
+	número_matricula [shape=plaintext]
+	número_curso [shape=plaintext]
+	código_disciplina [shape=plaintext]
+	nome_disciplina [shape=plaintext]
+	ch_disciplina [shape=plaintext]
+	nome_campus [shape=plaintext]
+	sessão [shape=plaintext]
+	tipo_matricula [shape=plaintext]
+	_semestre [shape=plaintext]
+	ano [shape=plaintext]
+	obrigatório [shape=plaintext]	
+	eixo [shape=plaintext]
+	implantação [shape=plaintext]
+	dia_semana [shape=plaintext]
+	hora [shape=plaintext]
+	semana [shape=plaintext]
+	tipo_ch_max [shape=plaintext]
+	idade_aluno [shape=plaintext]
+	ch_max [shape=plaintext]
+    // Ligações
+    aluno -- tem -- matrícula
+	aluno -- nome_aluno
+	aluno -- email_aluno
+	aluno -- telefone_aluno
+	aluno -- RG_aluno
+	aluno -- idade_aluno
+    matrícula -- cursou -- disciplina
+    matrícula -- faz -- pedidoDeMatrícula
+    matrícula -- vinculado -- curso
+	matrícula -- número_matricula
+    pedidoDeMatrícula -- pede -- disciplina
+	pedidoDeMatrícula -- sessão
+	pedidoDeMatrícula -- tipo_matricula
+	pedidoDeMatrícula -- tipo_ch_max
+    curso -- pertence -- câmpus
+    curso -- possui -- currículo
+	curso -- nome_curso
+	curso -- número_curso
+	professor -- lotado -- câmpus
+	professor -- nome_professor
+	professor -- documento_professor	
+    disciplina -- ministrado -- professor
+	disciplina -- código_disciplina
+	disciplina -- ch_disciplina
+	disciplina -- nome_disciplina
+    currículo -- agrega -- disciplina
+	currículo -- implantação
+    semestre -- oferta -- disciplina
+	semestre -- _semestre
+	semestre -- ano
+    disciplina -- contém -- horário
+    semestre -- disponibiliza -- horário
+    disciplina -- exige -- préRequisito
+	câmpus -- nome_campus
+	horário -- dia_semana
+	horário -- hora
+	horário -- semana
+	préRequisito -- obrigatório
+	préRequisito -- eixo
+	préRequisito -- ch_max
+}
+
