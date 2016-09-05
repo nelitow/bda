@@ -1,7 +1,7 @@
 graph diagramaER {
     layout = neato
     overlap = false
-    splines=true
+    splines=true;
 
     // Sujeitos
     aluno [shape=record]
